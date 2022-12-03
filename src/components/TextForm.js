@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TextForm(props) {
+  const [text, setText] = useState("");
+  //text = 'new text'; //wrong way to change state
+  // setText('new text'); //right way to change state and settext is a function
+
+  const handleOnChange = (e) => {
+    // console.log("handleOnChange")
+    setText(e.target.value);
+  };
+
   //function to make uppercase text
   const handleUC = () => {
     // console.log("toUpperCase fn" + text)
@@ -21,14 +30,7 @@ export default function TextForm(props) {
     setText(newText);
   };
 
-  const handleOnChange = (e) => {
-    // console.log("handleOnChange")
-    setText(e.target.value);
-  };
-
-  const [text, setText] = useState("");
-  //text = 'new text'; //wrong way to change state
-  // setText('new text'); //right way to change state and settext is a function
+  
 
   return (
     <>
@@ -64,7 +66,7 @@ export default function TextForm(props) {
         <h3 className="p-1 mb-0 text-center bg-warning text-dark ">
           Text Preview
         </h3>
-        <pre className="p-2 m-0"><p>{text}</p></pre>
+        <pre className="p-2 m-0 text-break"><p>{text}</p></pre>
       </div>
     </>
   );
