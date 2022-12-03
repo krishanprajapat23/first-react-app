@@ -64,7 +64,7 @@ export default function TextForm(props) {
         <h3 className="p-1 mb-0 text-center bg-warning text-dark ">
           Text Preview
         </h3>
-        <p className="p-2 m-0">{text}</p>
+        <pre className="p-2 m-0"><p>{text}</p></pre>
       </div>
     </>
   );
