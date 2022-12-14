@@ -16,6 +16,7 @@ export default function TextForm(props) {
     // console.log("toUpperCase fn" + text)
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase Successfully", "success")
   };
 
   //function to make lowercase text
@@ -23,11 +24,13 @@ export default function TextForm(props) {
     // console.log("toUpperCase fn" + text)
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase Successfully", "success")
   };
   //clear the text value
   const clearText = () => {
     let newText = '';
     setText(newText);
+    props.showAlert("Text-box cleared", "success");
   };
 
   //  fn to copy value
@@ -35,12 +38,14 @@ export default function TextForm(props) {
     let text = document.getElementById("Textarea1")
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text Copied", "success");
   }
   
   //fn to remove extra space
   const handleExtraSpace = ()=> {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Removed extra spaces successfully", "success");
   }
 
   return (
