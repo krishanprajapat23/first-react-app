@@ -45,8 +45,8 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="textform container">
-        <h1 className="heading-form">{props.heading}</h1>
+      <div className="textform container" style={{color:props.mode === 'dark'? '#fff':'#333'}}>
+        <h1 className="heading-form" >{props.heading}</h1>
         <div className="mb-3">
           <textarea
             value={text}
@@ -54,6 +54,7 @@ export default function TextForm(props) {
             className="form-control"
             id="Textarea1"
             rows="8"
+            style={{backgroundColor:props.mode === 'light'? '#fff':'#333', color:props.mode === 'dark'? '#fff':'#333'}}
           ></textarea>
         </div>
         <div className="fn-btn d-flex flex-wrap gap-2 justify-content-start">
@@ -85,7 +86,7 @@ export default function TextForm(props) {
         <h3 className="p-1 mb-0 text-center bg-warning text-dark ">
           Text Preview
         </h3>
-        <pre className="p-2 m-0 text-break"><p>{text}</p></pre>
+        <pre className="p-2 m-0 text-break"><p>{text.length>0? text: 'Write some text in above box to preview it here'}</p></pre>
       </div>
     </>
   );
