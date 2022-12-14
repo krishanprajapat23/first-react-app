@@ -82,10 +82,10 @@ export default function TextForm(props) {
       </div>
       <div className="container my-2 bg-dark text-light">
         <p className="p-2 m-0 text-center">
-          <strong>{text.split(" ").length}</strong> words and <strong>{text.length}</strong> charaters
+          <strong>{text === "" ? 0 : text.split(" ").length}</strong> words and <strong>{text.length}</strong> charaters
         </p>
         <p className="p-2 m-0 text-center">
-          <strong>{(0.008 * text.split(" ").length).toFixed(2)}</strong> Minutes to read this
+          <strong>{text === "" ? 0 : (0.008 * text.split(" ").length).toFixed(2)}</strong> Minutes to read this
           text
         </p>
         <h3 className="p-1 mb-0 text-center bg-warning text-dark ">
