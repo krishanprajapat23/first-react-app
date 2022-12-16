@@ -35,10 +35,7 @@ export default function TextForm(props) {
 
   //  fn to copy value
   const handleCopy = () => {
-    let text = document.getElementById("Textarea1")
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Text Copied", "success");
   }
   
@@ -83,7 +80,7 @@ export default function TextForm(props) {
       </div>
       <div className="container my-2 bg-dark text-light">
         <p className="p-2 m-0 text-center">
-          <strong>{text === "" ? 0 : text.split(" ").filter((el)=>{return el.length!==0}).length}</strong> words and <strong>{text.length}</strong> charaters
+          <strong>{text.split(/\s+/).filter((el)=>{return el.length!==0}).length}</strong> words and <strong>{text.length}</strong> charaters
         </p>
         <p className="p-2 m-0 text-center">
           <strong>{(0.008 * text.split(" ").filter((el)=>{return el.length!==0}).length).toFixed(2)}</strong> Minutes to read this
