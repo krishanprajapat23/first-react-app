@@ -49,7 +49,7 @@ function App() {
         <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode}/>
           </Route>
           <Route exact path='/about'>
-        <About />
+        <About mode={mode}/>
           </Route>
         </Switch>
       </div>

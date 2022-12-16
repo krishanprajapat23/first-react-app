@@ -8,9 +8,10 @@ export const Alert = (props) => {
     }
 
   return (
-    props.alert && <div className={`alert alert-${props.alert.msgType} alert-dismissible fade show`} role="alert">
+    <div style={{minHeight: '60px'}}>
+    {props.alert && <div className={`alert alert-${props.alert.msgType} alert-dismissible fade show`} role="alert">
         <strong>{firstLetterCapital(props.alert.msgType)}:</strong> {props.alert.msg}
+    </div>}
     </div>
-   
   )
 }

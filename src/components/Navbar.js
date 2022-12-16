@@ -11,7 +11,7 @@ export default function Navbar(props) {
             {props.title}
           </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler order-1"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -45,11 +45,11 @@ export default function Navbar(props) {
                 Search
               </button>
             </form> */}
+          </div>
             <div  className="form-check form-switch">
               <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
               <label className={`form-check-label text-${props.mode === 'light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault">{`${props.mode === 'light' ? 'Dark' : 'Light'} Mode`}</label>
             </div>
-          </div>
         </div>
       </nav>
     </>
@@ -62,7 +62,6 @@ Navbar.propTypes = {
 }
 
 //default values for props
-
 Navbar.defaultProps = {
     title: 'TextUtils',
     about: 'About'

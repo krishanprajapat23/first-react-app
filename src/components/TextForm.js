@@ -38,6 +38,7 @@ export default function TextForm(props) {
     let text = document.getElementById("Textarea1")
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Text Copied", "success");
   }
   
@@ -63,29 +64,29 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <div className="fn-btn d-flex flex-wrap gap-2 justify-content-start">
-          <button className="btn btn-sm btn-danger" onClick={handleUC}>
+          <button disabled={text.length===0} className="btn btn-sm btn-danger" onClick={handleUC}>
             Convert to Uppercase
           </button>
-          <button className="btn btn-sm btn-danger" onClick={handleLC}>
+          <button disabled={text.length===0} className="btn btn-sm btn-danger" onClick={handleLC}>
             Convert to Lowercase
           </button>
-          <button className="btn btn-sm btn-danger" onClick={clearText}>
+          <button disabled={text.length===0} className="btn btn-sm btn-danger" onClick={clearText}>
             Clear
           </button>
-          <button className="btn btn-sm btn-danger" onClick={handleCopy}>
+          <button disabled={text.length===0} className="btn btn-sm btn-danger" onClick={handleCopy}>
             Copy Text
           </button>
-          <button className="btn btn-sm btn-danger" onClick={handleExtraSpace}>
+          <button disabled={text.length===0} className="btn btn-sm btn-danger" onClick={handleExtraSpace}>
             Remove Extra Space
           </button>
         </div>
       </div>
       <div className="container my-2 bg-dark text-light">
         <p className="p-2 m-0 text-center">
-          <strong>{text === "" ? 0 : text.split(" ").length}</strong> words and <strong>{text.length}</strong> charaters
+          <strong>{text === "" ? 0 : text.split(" ").filter((el)=>{return el.length!==0}).length}</strong> words and <strong>{text.length}</strong> charaters
         </p>
         <p className="p-2 m-0 text-center">
-          <strong>{text === "" ? 0 : (0.008 * text.split(" ").length).toFixed(2)}</strong> Minutes to read this
+          <strong>{(0.008 * text.split(" ").filter((el)=>{return el.length!==0}).length).toFixed(2)}</strong> Minutes to read this
           text
         </p>
         <h3 className="p-1 mb-0 text-center bg-warning text-dark ">
